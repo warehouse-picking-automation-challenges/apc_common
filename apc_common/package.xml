@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+  <name>apc_common</name>
+  <version>0.0.1</version>
+  <description>
+   <p>Metapackage that contains commonly used toolset for Amazon Picking Challenge</p>
+  </description>
+
+  <maintainer email="www.kentaro.wada@gmail.com">Kentaro Wada</maintainer>
+  <author email="www.kentaro.wada@gmail.com">Kentaro Wada</author>
+  <license>BSD</license>
+
+  <url type="repository">https://github.com/amazon-picking-challenge/apc_common</url>
+  <url type="bugtracker">https://github.com/amazon-picking-challenge/apc_common/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>
