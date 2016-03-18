@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>apc2015_common</name>
+  <version>0.0.1</version>
+  <description>Common stack for Amazon Picking Challenge 2015</description>
+
+  <maintainer email="wwww.kentaro.wada@gmail.com">Kentaro Wada</maintainer>
+  <author email="wwww.kentaro.wada@gmail.com">Kentaro Wada</author>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>gazebo_ros</run_depend>
+
+  <export>
+    <gazebo_ros gazebo_model_path="${prefix}/models" />
+  </export>
+
+</package>
