@@ -26,19 +26,23 @@ def _resize_with_max_size(src, max_height, max_width):
     return dst
 
 
-def visualize_object_set(height=2560, width=2560, tile_x=5, tile_y=5):
-    if tile_x * tile_y < 25:
-        raise ValueError(
-            'tile size should be over 25.\nActual size: {} x {} = {}'
-            .format(tile_x, tile_y, tile_x*tile_y))
+def visualize_object_set(objects=None, height=2560, width=2560,
+                         tile_x=5, tile_y=5):
+    if objects is None:
+        objects = [obj['name'] for obj in load_object_data()]
+
+    if tile_x * tile_y < len(objects):
+        msg = ('tile size should be over number of objects {}.'
+               '\nActual size: {} x {} = {}')
+
+        raise ValueError(msg.format(len(objects), tile_x, tile_y,
+                                    tile_x*tile_y))
 
     img_shape = (height, width, 4)
     max_h, max_w = height // tile_y, width // tile_x
     img = np.zeros(img_shape, dtype=np.uint8)
 
-    obj_data = load_object_data()
-    for i, data in enumerate(obj_data):
-        obj_name = data['name']
+    for i, obj_name in enumerate(objects):
         x, y = i % tile_x, i // tile_x
 
         obj_img = imread(osp.join(PKG_PATH, 'models', obj_name, 'image.png'))
